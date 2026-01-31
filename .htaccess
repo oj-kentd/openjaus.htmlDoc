@@ -1,0 +1,6 @@
+#AuthName "Restricted Area"
+#AuthType Basic
+#AuthUserFile /home/users/web/b1159/ipw.dannyken/public_html/openjaus/htmlDoc/.htpasswd
+#AuthGroupFile /dev/null 
+#Require valid-user
+
