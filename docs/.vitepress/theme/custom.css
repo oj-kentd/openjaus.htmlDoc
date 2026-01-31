@@ -1,0 +1,179 @@
+/**
+ * Custom CSS for OpenJAUS Documentation
+ * 
+ * This file provides styling for the JAUS documentation,
+ * including tables, state machine diagrams, and branding.
+ */
+
+/* ==========================================
+   JAUS Tables - Used for message formats, 
+   state transitions, and actions
+   ========================================== */
+
+.jaus-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.jaus-table th,
+.jaus-table td {
+  border: 1px solid var(--vp-c-divider);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.jaus-table th {
+  background-color: var(--vp-c-bg-soft);
+  font-weight: 600;
+}
+
+.jaus-table tr:nth-child(even) {
+  background-color: var(--vp-c-bg-alt);
+}
+
+.jaus-table code {
+  font-size: 0.85em;
+  padding: 0.1em 0.3em;
+  background-color: var(--vp-c-bg-soft);
+  border-radius: 3px;
+}
+
+/* Responsive table wrapper */
+.jaus-table-wrapper {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+/* ==========================================
+   State Machine Diagrams
+   ========================================== */
+
+.vp-doc img[alt*="State Machine"] {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: var(--vp-c-bg);
+}
+
+/* ==========================================
+   Markdown Tables - Override default styles
+   ========================================== */
+
+.vp-doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.vp-doc table th,
+.vp-doc table td {
+  border: 1px solid var(--vp-c-divider);
+  padding: 0.5rem 0.75rem;
+}
+
+.vp-doc table th {
+  background-color: var(--vp-c-bg-soft);
+  font-weight: 600;
+}
+
+.vp-doc table tr:nth-child(even) {
+  background-color: var(--vp-c-bg-alt);
+}
+
+/* ==========================================
+   Custom Colors and Branding
+   ========================================== */
+
+:root {
+  /* OpenJAUS brand colors */
+  --vp-c-brand-1: #5a6ad9;
+  --vp-c-brand-2: #4a5ac9;
+  --vp-c-brand-3: #3a4ab9;
+  
+  /* Home page hero gradient */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #5a6ad9 30%, #8a9ae9);
+}
+
+.dark {
+  /* Darker brand colors for dark mode */
+  --vp-c-brand-1: #7a8ae9;
+  --vp-c-brand-2: #6a7ad9;
+  --vp-c-brand-3: #5a6ac9;
+}
+
+/* ==========================================
+   Message and Service Cards
+   ========================================== */
+
+.vp-doc h1 + table {
+  /* Property table after the title */
+  max-width: 400px;
+}
+
+/* ==========================================
+   Code and Identifiers
+   ========================================== */
+
+.vp-doc code {
+  color: var(--vp-c-text-1);
+}
+
+/* URN styling */
+.vp-doc code:has(urn) {
+  word-break: break-all;
+}
+
+/* ==========================================
+   Sidebar Improvements
+   ========================================== */
+
+.VPSidebarItem.level-0 .text {
+  font-weight: 600;
+}
+
+/* Make message IDs in sidebar less prominent */
+.VPSidebarItem .text {
+  font-size: 0.9rem;
+}
+
+/* ==========================================
+   Responsive Design
+   ========================================== */
+
+@media (max-width: 768px) {
+  .jaus-table {
+    font-size: 0.8rem;
+  }
+  
+  .jaus-table th,
+  .jaus-table td {
+    padding: 0.4rem 0.5rem;
+  }
+  
+  .vp-doc img[alt*="State Machine"] {
+    padding: 0.5rem;
+  }
+}
+
+/* ==========================================
+   Print Styles
+   ========================================== */
+
+@media print {
+  .jaus-table {
+    page-break-inside: avoid;
+  }
+  
+  .vp-doc img[alt*="State Machine"] {
+    max-height: 600px;
+    object-fit: contain;
+  }
+}
