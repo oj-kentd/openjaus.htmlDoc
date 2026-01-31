@@ -1,0 +1,143 @@
+---
+title: SetGlobalWaypoint
+---
+
+# Message: SetGlobalWaypoint
+
+| Property | Value |
+| --- | --- |
+| **Type** | Message |
+| **Message ID** | `040Ch` |
+
+## Description
+
+This message is used to set waypoint data based on the global coordinate system. A global waypoint can have up to six fields to describe it completely. The waypoint is defined in the global coordinate system using the latitude, longitude, and altitude, fields. The desired orientation of the platform at the waypoint is defined using the roll, pitch, and yaw fields. Only fields 1-3 (presence vector, latitude, and longitude) are required for each waypoint. Field #4 sets the desired Altitude in accordance with the WGS 84 standard. The presence vector is used to specify if the remaining fields, i.e., altitude, roll, pitch, and yaw, are used to further describe the waypoint and the desired orientation at that point.
+
+## Message Format
+
+<table border="1" class="jaus-table">
+<tbody><tr>
+<th align="left" colspan="6"><font size="+2">
+<b>Message Format</b></font></th>
+</tr>
+<tr>
+<td align="center"><b>Field #</b></td>
+<td><b>Field</b></td>
+<td><b>Type</b></td>
+<td><b>Units</b></td>
+<td align="center"><b>Optional</b></td>
+<td><b>Interpretation</b></td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>Presence Vector</td>
+<td>Unsigned Byte</td>
+<td>one</td>
+<td align="center"><i>false</i></td>
+<td>
+Bit 0: Altitude<br>
+Bit 1: Roll<br>
+Bit 2: Pitch<br>
+Bit 3: Yaw<br>
+Bit 4: WaypointTolerance<br>
+Bit 5: PathTolerance<br>
+</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td>Latitude</td>
+<td>Scaled Integer<br>
+Integer Size: Unsigned Integer</td>
+<td>units degrees</td>
+<td align="center"><i>false</i></td>
+<td>
+Real Lower Limit: -90.0<br>
+Real Upper Limit: 90.0<br>
+</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td>Longitude</td>
+<td>Scaled Integer<br>
+Integer Size: Unsigned Integer</td>
+<td>units degrees</td>
+<td align="center"><i>false</i></td>
+<td>
+Real Lower Limit: -180.0<br>
+Real Upper Limit: 180.0<br>
+</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td>Altitude</td>
+<td>Scaled Integer<br>
+Integer Size: Unsigned Integer</td>
+<td>units meter</td>
+<td align="center"><i>true</i></td>
+<td>
+Real Lower Limit: -10000.0<br>
+Real Upper Limit: 35000.0<br>
+</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td>Roll</td>
+<td>Scaled Integer<br>
+Integer Size: Unsigned Short</td>
+<td>units radians</td>
+<td align="center"><i>true</i></td>
+<td>
+Real Lower Limit: -3.141592653589793<br>
+Real Upper Limit: 3.141592653589793<br>
+</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td>Pitch</td>
+<td>Scaled Integer<br>
+Integer Size: Unsigned Short</td>
+<td>units radians</td>
+<td align="center"><i>true</i></td>
+<td>
+Real Lower Limit: -3.141592653589793<br>
+Real Upper Limit: 3.141592653589793<br>
+</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td>Yaw</td>
+<td>Scaled Integer<br>
+Integer Size: Unsigned Short</td>
+<td>units radians</td>
+<td align="center"><i>true</i></td>
+<td>
+Real Lower Limit: -3.141592653589793<br>
+Real Upper Limit: 3.141592653589793<br>
+</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td>WaypointTolerance</td>
+<td>Scaled Integer<br>
+Integer Size: Unsigned Short</td>
+<td>units meter</td>
+<td align="center"><i>true</i></td>
+<td>
+Real Lower Limit: 0.0<br>
+Real Upper Limit: 100.0<br>
+</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td>PathTolerance</td>
+<td>Scaled Integer<br>
+Integer Size: Unsigned Integer</td>
+<td>units one</td>
+<td align="center"><i>true</i></td>
+<td>A value of 0 is used for infinite tolerance.<br><br>
+Real Lower Limit: 0.0<br>
+Real Upper Limit: 100000.0<br>
+</td>
+</tr>
+</tbody></table>
+
